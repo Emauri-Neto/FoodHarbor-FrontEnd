@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
+import AuthContext from "../context/authContext";
 
 const Login = () => {
+    let {login} = useContext(AuthContext)
     return(
         <>
-            <h1>login page</h1>
+            <form onSubmit={login}>
+                <input type="email" name="email" placeholder="teste@email.com"/>
+                <input type="password" name="password" placeholder="senha"/>
+                <input type="submit" />
+            </form>
         </>
     )
 }
