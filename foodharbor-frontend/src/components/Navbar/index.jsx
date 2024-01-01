@@ -9,8 +9,6 @@ import cake from "./img/cakeIcon.svg";
 import sushi from "./img/sushiIcon.png";
 import bread from "./img/breadIcon.png";
 
-import StyledLink from "../../styles/StyledStyledLink";
-
 import { ContainerNav, LinkNav } from "./style";
 
 const Navbar = () => {

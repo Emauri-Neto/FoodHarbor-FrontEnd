@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const ContainerHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-items: center;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
   margin-top: 16px;
+  gap: 10%;
 
   img {
     height: 55px;
-    width: 230px;
-    margin-left: 20px;
+    width: 280px;
   }
 
   .label-search {
@@ -21,7 +22,7 @@ export const ContainerHeader = styled.div`
     width: 400px;
     height: 35px;
 
-    padding: 0 16px;
+    padding: 0 8px;
     outline: none;
 
     border: 1px solid (0, 0, 0, 0.4);
@@ -65,6 +66,45 @@ export const ContainerHeader = styled.div`
   .button-purchase {
     width: 89px;
     height: 39px;
+    border-radius: 5px;
+    border: 1px solid #ea4544;
+    color: #ea4544;
+  }
+  .menuDropdownItems {
+    width: 300%;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+`;
+
+export const UnauthenticatedMenu = styled.div`
+  margin-right: 5%;
+  
+  ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 15%;
+  }
+
+  .button{
+    padding: 10%;
     border-radius: 5px;
     border: 1px solid #ea4544;
     color: #ea4544;

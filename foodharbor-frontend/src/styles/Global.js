@@ -10,6 +10,7 @@ export default createGlobalStyle`
     :root{
         --white: #FFF;
         --black: #080808;
+        --orange: #ea4544;
     }
     body{
         color: var(--black);

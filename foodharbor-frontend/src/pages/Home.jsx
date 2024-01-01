@@ -1,14 +1,11 @@
 import React from "react";
-import { StyledLink } from "../styles/StyledLink";
-import { useAuth } from "../context/authContext";
+
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-    let {Logout} = useAuth()
     return(
         <>
-            <StyledLink to="/login">login</StyledLink>
-            <p>     |     </p>
-            <StyledLink onClick={Logout}>Logout</StyledLink>
+            <Navbar />
         </>
     )
 }

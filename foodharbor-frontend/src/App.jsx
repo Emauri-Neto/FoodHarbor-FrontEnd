@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Global from "./styles/Global";
 
 import { Outlet } from "react-router-dom";
-import { AuthProvider } from "./context/authContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
@@ -13,7 +13,6 @@ function App() {
       <AuthProvider>
         <Global />
         <Header />
-        <Navbar />
         <Outlet />
       </AuthProvider>
     </>

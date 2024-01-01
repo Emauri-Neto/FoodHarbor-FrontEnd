@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import StyledLink from "../../styles/StyledStyledLink";
+import StyledLink from "../../styles/StyledLink"
 
 import LogoImg from "../../assets/Logo-FoodHarbor.png";
 
@@ -10,11 +10,36 @@ import {
   faLocationDot,
   faUser,
   faBagShopping,
+  faGear,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { ContainerHeader } from "./style";
+import { ContainerHeader, UnauthenticatedMenu } from "./style";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  let { Logout, user } = useAuth();
+  const navigate = useNavigate();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  }
+
+  const handleLogout = async () => {
+    try {
+      await Logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+    }
+  };
+
   return (
     <ContainerHeader>
       <StyledLink to="/">
@@ -35,23 +60,37 @@ const Header = () => {
           Buscar
         </button>
       </label>
-      <label className="wrapper-buttons">
-        <button className="button-address">
-          <FontAwesomeIcon icon={faLocationDot} style={{ marginRight: 3 }} />
-          Entrega:
-        </button>
-        <select name="user" className="button-user">
-          <option value="">
-            <FontAwesomeIcon icon={faUser} style={{ marginRight: "3px" }} />
-            Usuario
-          </option>
-          <option value="test">Teste</option>
-        </select>
-        <button className="button-purchase">
-          <FontAwesomeIcon icon={faBagShopping} style={{ marginRight: 3 }} />
-          Sacola
-        </button>
-      </label>
+      {user ? (
+        <label className="wrapper-buttons">
+          <button className="button-address">
+            <FontAwesomeIcon icon={faLocationDot} style={{ marginRight: 3 }} />
+            Entrega:
+          </button>
+          <button className="button-purchase" onClick={handleLogout}>
+            Sair
+          </button>
+          <button className="button-purchase">
+            <FontAwesomeIcon icon={faBagShopping} style={{ marginRight: 3 }} />
+            Sacola
+          </button>
+        </label>
+      ) : (
+        <UnauthenticatedMenu>
+          <label className="wrapper-buttons">
+            <StyledLink to="/login">
+              <button className="button-address" style={{ backgroundColor: "var(--white", fontSize: "1.2rem", cursor: "pointer" }}>
+                Entrar
+              </button>
+            </StyledLink>
+            <StyledLink to="/login">
+              <button className="button-address" style={{ backgroundColor: "var(--white", fontSize: "1.2rem", cursor: "pointer" }}>
+                Cadastrar
+              </button>
+            </StyledLink>
+          </label>
+        </UnauthenticatedMenu>
+      )}
+
     </ContainerHeader>
   );
 };
