@@ -4,6 +4,7 @@ export const ContainerHeader = styled.div`
   display: flex;
   justify-items: center;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 100%;
   margin-top: 16px;
@@ -43,70 +44,34 @@ export const ContainerHeader = styled.div`
     cursor: pointer;
     letter-spacing: 0.5px;
   }
-  .wrapper-buttons {
-    display: flex;
-    gap: 10px;
-    margin-right: 5px;
-    margin-right: 10px;
-  }
-  .button-address {
-    width: 89px;
-    height: 39px;
-    border-radius: 5px;
-    border: 1px solid #ea4544;
-    color: #ea4544;
-  }
-  .button-user {
-    height: 39px;
-    border-radius: 5px;
-    border: 1px solid #ea4544;
-    outline: none;
-    color: #ea4544;
-  }
-  .button-purchase {
-    width: 89px;
-    height: 39px;
-    border-radius: 5px;
-    border: 1px solid #ea4544;
-    color: #ea4544;
-  }
-  .menuDropdownItems {
-    width: 300%;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    padding: 10px;
-    background-color: var(--white);
-    border: 1px solid var(--gray);
-
-    ul {
+    ul{
       list-style: none;
-      padding: 0;
-      margin: 0;
+      font-size: 1.2rem;
+      margin-right: 4%;
       display: flex;
-      flex-direction: column;
+      gap: 8px;
+      height: auto;
+
+      #Info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--orange);
+        border: 2px solid var(--orange);
+        padding-inline: 6%;
+        font-weight: 500;
+        border-radius: 5px;
+      }
+      
+      #Buttons{
+        padding: 5%;
+        margin-inline: 4%;
+        border: 1px solid var(--orange);
+        color: var(--orange);
+        &:hover{
+          color: var(--white);
+          background-color: var(--orange);
+        }
+      }
     }
-  }
-`;
-
-export const UnauthenticatedMenu = styled.div`
-  margin-right: 5%;
-  
-  ul{
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 15%;
-  }
-
-  .button{
-    padding: 10%;
-    border-radius: 5px;
-    border: 1px solid #ea4544;
-    color: #ea4544;
-  }
 `;

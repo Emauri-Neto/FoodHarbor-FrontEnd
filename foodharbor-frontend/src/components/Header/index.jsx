@@ -12,9 +12,10 @@ import {
   faBagShopping,
   faGear,
   faRightFromBracket,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { ContainerHeader, UnauthenticatedMenu } from "./style";
+import { ContainerHeader } from "./style";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -31,6 +32,7 @@ const Header = () => {
     setIsOpen(false);
   }
 
+  let address = ['SAO PAULO']
   const handleLogout = async () => {
     try {
       await Logout();
@@ -61,34 +63,42 @@ const Header = () => {
         </button>
       </label>
       {user ? (
-        <label className="wrapper-buttons">
-          <button className="button-address">
-            <FontAwesomeIcon icon={faLocationDot} style={{ marginRight: 3 }} />
-            Entrega:
-          </button>
-          <button className="button-purchase" onClick={handleLogout}>
-            Sair
-          </button>
-          <button className="button-purchase">
-            <FontAwesomeIcon icon={faBagShopping} style={{ marginRight: 3 }} />
+        <ul>
+          <li id="Info" style={{ fontSize: "1rem", width: 250 }}>
+            <FontAwesomeIcon
+              icon={faLocationDot}
+              style={{ marginRight: "10%" }}
+            />
+            Entrega: {address}
+          </li>
+          <li id="Info" style={{ fontSize: "1rem", }}>
+            <FontAwesomeIcon
+              icon={faUser}
+              style={{ marginRight: "25%" }}
+            />
+            <FontAwesomeIcon icon={faCaretDown} />
+          </li>
+          <li id="Info" style={{ fontSize: "1rem", }} onClick={Logout}>
+            <FontAwesomeIcon
+              icon={faBagShopping}
+              style={{ marginRight: "15%" }}
+            />
             Sacola
-          </button>
-        </label>
+          </li>
+        </ul>
       ) : (
-        <UnauthenticatedMenu>
-          <label className="wrapper-buttons">
-            <StyledLink to="/login">
-              <button className="button-address" style={{ backgroundColor: "var(--white", fontSize: "1.2rem", cursor: "pointer" }}>
-                Entrar
-              </button>
-            </StyledLink>
-            <StyledLink to="/login">
-              <button className="button-address" style={{ backgroundColor: "var(--white", fontSize: "1.2rem", cursor: "pointer" }}>
-                Cadastrar
-              </button>
-            </StyledLink>
-          </label>
-        </UnauthenticatedMenu>
+        <ul>
+          <StyledLink id="Buttons" to="/login">
+            <span>
+              Entrar
+            </span>
+          </StyledLink>
+          <StyledLink id="Buttons">
+            <span>
+              Registrar
+            </span>
+          </StyledLink>
+        </ul>
       )}
 
     </ContainerHeader>
