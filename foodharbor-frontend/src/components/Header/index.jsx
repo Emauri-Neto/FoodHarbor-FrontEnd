@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import StyledLink from "../../styles/StyledLink"
 
@@ -20,17 +20,15 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
   let { Logout, user } = useAuth();
   const navigate = useNavigate();
+  const userIconRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleToggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  }
 
   let address = ['SAO PAULO']
   const handleLogout = async () => {
@@ -41,6 +39,18 @@ const Header = () => {
       console.error('Erro ao fazer logout:', error);
     }
   };
+
+  useEffect(() => {
+    if (userIconRef.current) {
+      const rect = userIconRef.current.getBoundingClientRect();
+      const dropdown = document.getElementById("user-dropdown");
+
+      if (dropdown) {
+        dropdown.style.top = `${rect.bottom}px`;
+        dropdown.style.left = `${rect.left}px`;
+      }
+    }
+  }, [menuOpen]);
 
   return (
     <ContainerHeader>
@@ -64,6 +74,7 @@ const Header = () => {
       </label>
       {user ? (
         <ul>
+          {/* TEM QUE CONSERTAR ISSO AQUI MAIS TARDE */}
           <li id="Info" style={{ fontSize: "1rem", width: 250 }}>
             <FontAwesomeIcon
               icon={faLocationDot}
@@ -71,14 +82,43 @@ const Header = () => {
             />
             Entrega: {address}
           </li>
-          <li id="Info" style={{ fontSize: "1rem", }}>
+          <li
+            id="Info"
+            style={{ fontSize: "1rem", }}
+            onMouseEnter={handleToggleMenu}
+            onMouseLeave={handleToggleMenu}
+            ref={userIconRef}
+          >
             <FontAwesomeIcon
               icon={faUser}
               style={{ marginRight: "25%" }}
+
             />
             <FontAwesomeIcon icon={faCaretDown} />
+            {menuOpen && (
+              <div
+                id="user-dropdown"
+                className="dropdownMenu"
+              >
+                <ul
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    margin: 0,
+                  }}
+                >
+                  <li id="dropdownItem" style={{marginTop: 5}}>Pedidos</li>
+                  <li id="dropdownItem">Favoritos</li>
+                  <li id="dropdownItem">Perfil</li>
+                  <li id="dropdownItem">Meus Endereços</li>
+                  <hr />
+                  <li onClick={handleLogout} id="dropdownItem" style={{marginTop: 0, marginBottom: 7}}>Sair</li>
+                </ul>
+              </div>
+            )}
+
           </li>
-          <li id="Info" style={{ fontSize: "1rem", }} onClick={Logout}>
+          <li id="Info" style={{ fontSize: "1rem", }}>
             <FontAwesomeIcon
               icon={faBagShopping}
               style={{ marginRight: "15%" }}

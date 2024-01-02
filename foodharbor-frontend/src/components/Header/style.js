@@ -73,5 +73,24 @@ export const ContainerHeader = styled.div`
           background-color: var(--orange);
         }
       }
+
+      .dropdownMenu{
+        position: absolute;
+        background-color: var(--white);
+        width: 150px;
+        border: 1px solid var(--black);
+        border-radius: 5px;
+      }
+
+      #dropdownItem{
+        cursor: pointer;
+        color: var(--black);
+        padding-inline: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        &:hover{
+          background-color: #ededed;
+        }
+      }
     }
 `;
