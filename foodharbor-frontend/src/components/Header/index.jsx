@@ -20,7 +20,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  let { Logout, user } = useAuth();
+  let { user, Logout } = useAuth();
   const navigate = useNavigate();
   const userIconRef = useRef(null);
 
