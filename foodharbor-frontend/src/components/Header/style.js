@@ -68,6 +68,7 @@ export const ContainerHeader = styled.div`
         margin-inline: 4%;
         border: 1px solid var(--orange);
         color: var(--orange);
+        border-radius: 5px;
         &:hover{
           color: var(--white);
           background-color: var(--orange);
