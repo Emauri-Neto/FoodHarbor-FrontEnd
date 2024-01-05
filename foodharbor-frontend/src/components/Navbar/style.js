@@ -3,25 +3,24 @@ import { Link } from "react-router-dom";
 
 export const ContainerNav = styled.div`
   display: flex;
-  margin: 40px;
+  margin-inline: 40px;
+  margin-top: 3%;
   justify-content: center;
-`;
-export const LinkNav = styled(Link)`
-  width: 50%;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
+  gap: 5%;
 
-  img {
-    height: 50px;
-    width: 55px;
-  }
+  .itemWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  span {
-    color: #000;
-    &:hover {
-      color: #ea4544;
+    .imgContainer{
+      margin-bottom: 10%;
+    }
+
+    &:hover{
+      color: var(--orange);
+      cursor: pointer;
     }
   }
 `;

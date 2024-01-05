@@ -9,64 +9,131 @@ import cake from "./img/cakeIcon.svg";
 import sushi from "./img/sushiIcon.png";
 import bread from "./img/breadIcon.png";
 
-import StyledLink from "../../styles/StyledStyledLink";
-
-import { ContainerNav, LinkNav } from "./style";
+import { ContainerNav } from "./style";
+import StyledLink from "../../styles/StyledLink"
 
 const Navbar = () => {
   return (
     <ContainerNav>
-      <LinkNav to="/">
-        <span>
-          <img src={pizza} alt="" />
-          <p>Pizza</p>
-        </span>
-      </LinkNav>
-      <LinkNav to="/">
-        <span>
-          <img src={lanche} alt="" />
-          <p>Lanches</p>
-        </span>
-      </LinkNav>
-      <LinkNav to="/">
-        <span>
-          <img src={basket} alt="" />
-          <p>Mercado</p>
-        </span>
-      </LinkNav>
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={pizza}
+              alt="pizza"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Pizza</p>
+          </div>
+        </div>
+      </StyledLink>
 
-      <LinkNav to="/">
-        <span>
-          <img src={drinks} alt="" />
-          <p>Bebidas</p>
-        </span>
-      </LinkNav>
-      <LinkNav to="/">
-        <span>
-          <img src={fastfood} alt="" className="fastFoodImg" />
-          <p>Fast Food</p>
-        </span>
-      </LinkNav>
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={lanche}
+              alt="lanches"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Lanches</p>
+          </div>
+        </div>
+      </StyledLink>
 
-      <LinkNav to="/">
-        <span>
-          <img src={cake} alt="" />
-          <p>Doces</p>
-        </span>
-      </LinkNav>
-      <LinkNav to="/">
-        <span>
-          <img src={sushi} alt="" />
-          <p>Sushi</p>
-        </span>
-      </LinkNav>
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={basket}
+              alt="mercado"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Mercado</p>
+          </div>
+        </div>
+      </StyledLink>
 
-      <LinkNav to="/">
-        <span>
-          <img src={bread} alt="" />
-          <p>Padaria</p>
-        </span>
-      </LinkNav>
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={drinks}
+              alt="drinks"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Bebidas</p>
+          </div>
+        </div>
+      </StyledLink>
+
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={fastfood}
+              alt="fastfood"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Fast Food</p>
+          </div>
+        </div>
+      </StyledLink>
+
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={cake}
+              alt="cake"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Doces</p>
+          </div>
+        </div>
+      </StyledLink>
+
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={sushi}
+              alt="sushi"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Sushi</p>
+          </div>
+        </div>
+      </StyledLink>
+
+      <StyledLink>
+        <div className="itemWrapper">
+          <div className="imgContainer">
+            <img
+              src={bread}
+              alt="bread"
+              style={{ width: 50, height: 50 }}
+            />
+          </div>
+          <div className="txtContainer">
+            <p>Padaria</p>
+          </div>
+        </div>
+      </StyledLink>
     </ContainerNav>
   );
 };

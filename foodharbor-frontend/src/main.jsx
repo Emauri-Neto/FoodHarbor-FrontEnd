@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
-import Home from './pages/home.jsx'
+import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 

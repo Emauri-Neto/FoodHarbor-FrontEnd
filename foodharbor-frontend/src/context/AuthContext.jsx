@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
         () => localStorage.getItem('authTokens') ? jwtDecode(localStorage.getItem('authTokens')) : null
     );
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true)
 
 
 
@@ -47,10 +46,22 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('authTokens');
     }
 
+    const isValidToken = async () => {
+        console.log("Validou o token");
+        const payload = jwtDecode(authToken.access);
+        return Date.now() < payload.exp * 1000;
+    }
+
     const UpdateToken = async () => {
+        console.log("deu update no token");
+        if(isValidToken(authToken.access)){
+            return authToken;
+        }
+
         let headers = {
             'Content-Type': 'application/json'
         }
+
         let dataToSend = {
             refresh: authToken?.refresh
         }
@@ -65,33 +76,20 @@ export const AuthProvider = ({ children }) => {
                 console.error('erro:', error);
                 Logout();
             })
-        if(loading){
-            setLoading(false);
-        }
     }
 
     const contextData = {
         user: user,
+        authToken: authToken,
         Login: Login,
         Logout: Logout,
+        isValidToken: isValidToken,
+        UpdateToken: UpdateToken,
     };
-
-    useEffect(() => {
-        if(loading){
-            UpdateToken();
-        }
-        let timeInterval = 1000 * 60 * 4;
-        let interval = setInterval(() => {
-            if (authToken) {
-                UpdateToken();
-            }
-        }, timeInterval)
-        return () => clearInterval(interval);
-    }, [authToken, loading])
 
     return (
         <AuthContext.Provider value={contextData}>
-            {loading ? null : children}
+            {children}
         </AuthContext.Provider>
     );
 };
