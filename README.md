@@ -12,9 +12,11 @@ Um projeto de portfólio com o intuito de crescer e aprender sobre arquiteturas 
 
 ## Stack utilizada
 
-**Front-end:** [![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+### Front-end: 
+[![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 
-**Back-end:** [![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
+### Back-end: 
+[![django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
 
 
 ## Rodando localmente
