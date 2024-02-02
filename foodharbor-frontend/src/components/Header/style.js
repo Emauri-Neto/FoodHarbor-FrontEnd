@@ -44,54 +44,54 @@ export const ContainerHeader = styled.div`
     cursor: pointer;
     letter-spacing: 0.5px;
   }
-    ul{
-      list-style: none;
-      font-size: 1.2rem;
-      margin-right: 4%;
+  ul {
+    list-style: none;
+    font-size: 1.2rem;
+    margin-right: 4%;
+    display: flex;
+    gap: 8px;
+    height: auto;
+
+    #Info {
       display: flex;
-      gap: 8px;
-      height: auto;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      border: 2px solid var(--orange);
+      padding-inline: 6%;
+      font-weight: 500;
+      border-radius: 5px;
+    }
 
-      #Info{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--orange);
-        border: 2px solid var(--orange);
-        padding-inline: 6%;
-        font-weight: 500;
-        border-radius: 5px;
-      }
-      
-      #Buttons{
-        padding: 5%;
-        margin-inline: 4%;
-        border: 1px solid var(--orange);
-        color: var(--orange);
-        border-radius: 5px;
-        &:hover{
-          color: var(--white);
-          background-color: var(--orange);
-        }
-      }
-
-      .dropdownMenu{
-        position: absolute;
-        background-color: var(--white);
-        width: 150px;
-        border: 1px solid var(--black);
-        border-radius: 5px;
-      }
-
-      #dropdownItem{
-        cursor: pointer;
-        color: var(--black);
-        padding-inline: 15px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        &:hover{
-          background-color: #ededed;
-        }
+    #Buttons {
+      padding: 5%;
+      margin-inline: 4%;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      border-radius: 5px;
+      &:hover {
+        color: var(--white);
+        background-color: var(--orange);
       }
     }
+
+    .dropdownMenu {
+      position: absolute;
+      background-color: var(--white);
+      width: 150px;
+      border: 1px solid var(--black);
+      border-radius: 5px;
+    }
+
+    #dropdownItem {
+      cursor: pointer;
+      color: var(--black);
+      padding-inline: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      &:hover {
+        background-color: #ededed;
+      }
+    }
+  }
 `;

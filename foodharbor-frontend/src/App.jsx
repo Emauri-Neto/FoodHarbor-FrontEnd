@@ -12,7 +12,6 @@ function App() {
     <>
       <AuthProvider>
         <Global />
-        <Header />
         <Outlet />
       </AuthProvider>
     </>
