@@ -10,11 +10,19 @@ export default createGlobalStyle`
     :root{
         --white: #FFF;
         --black: #080808;
-        --orange: #ea4544;
+        --orange: #CE8B28;
+        --yellow: #FFAD32;
+        --gray: #F3F2F2;
+        --red: #FF2400;
+        --fadeRed: #FFCBCB;
     }
     body{
         color: var(--black);
         font-size: 1.2rem;
         font-weight: 400;
+    }
+
+    &:focus {
+        outline: none;
     }
 `;

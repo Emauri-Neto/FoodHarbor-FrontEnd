@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { BASE_URL, LOGIN_URL, REFRESH_URL } from "../services/api";
+import { BASE_URL, LOGIN_URL, REFRESH_URL, REGISTER_URL } from "../services/api";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +37,20 @@ export const AuthProvider = ({ children }) => {
         console.error("erro:", error);
       });
   };
+
+  const Register = async (email, password, firstName, lastName) => {
+
+    const response = await axios.post(`${BASE_URL}${REGISTER_URL}`, {
+      email,
+      password,
+      first_name: firstName,
+      last_name: lastName,
+    }).then((response) => {
+      navigate("/login");
+    }).catch((error) => {
+      console.error("error:", error);
+    })
+  }
 
   const Logout = () => {
     setAuthToken(null);
@@ -81,6 +95,7 @@ export const AuthProvider = ({ children }) => {
     user: user,
     authToken: authToken,
     Login: Login,
+    Register: Register,
     Logout: Logout,
     isValidToken: isValidToken,
     UpdateToken: UpdateToken,
