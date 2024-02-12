@@ -133,7 +133,7 @@ const Header = () => {
               Entrar
             </span>
           </StyledLink>
-          <StyledLink id="Buttons">
+          <StyledLink id="Buttons" to="/register">
             <span>
               Registrar
             </span>
