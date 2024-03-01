@@ -11,7 +11,7 @@
 
 </div>
 
-Junte-se à FoodHarbor em uma jornada de aprendizado contínuo sobre as melhores arquiteturas e práticas de desenvolvimento! Explore nosso portfólio em constante evolução, com exemplos práticos e insights valiosos para aprimorar suas habilidades. 🔥
+O FoodHarbor é uma plataforma inovadora que conecta chefs talentosos a entusiastas da culinária, proporcionando experiências gastronômicas únicas e inesquecíveis. Aqui, você encontrará uma variedade de opções para todos os gostos e ocasiões, desde jantares íntimos a eventos grandiosos. 🔥
 
 
 ## Stack utilizada
